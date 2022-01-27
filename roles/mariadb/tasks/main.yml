@@ -60,7 +60,6 @@
       user: ""
       host: "{{ item }}"
       state: absent
-    no_log: true
     with_items:
       - localhost
       - "{{ inventory_hostname }}"
