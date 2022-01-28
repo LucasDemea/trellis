@@ -9,7 +9,6 @@ import textwrap
 
 from ansible import __version__
 from ansible.module_utils._text import to_text
-from ansible.module_utils.six import string_types
 
 def system(vagrant_version=None):
     # Get most recent Trellis CHANGELOG entry
@@ -91,7 +90,7 @@ def display(obj, result):
     # Must pass unicode strings to Display.display() to prevent UnicodeError tracebacks
     if isinstance(msg, list):
         msg = '\n'.join([to_text(x) for x in msg])
-    elif not isinstance(msg, string_types):
+    elif not isinstance(msg, str):
         msg = to_text(msg)
 
     # Wrap text
